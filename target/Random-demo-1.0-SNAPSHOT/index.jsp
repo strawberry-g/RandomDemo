@@ -41,6 +41,7 @@
         console.log(num);
         document.getElementById("number").value = num;
 
+        /*获取画布*/
         let can = document.getElementById("shape");
         let context = can.getContext("2d");
         context.clearRect(0,0,150,350);
