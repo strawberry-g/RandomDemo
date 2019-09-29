@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace就是接口类-->
+<mapper namespace="com.gp.dao.AdminMapper">
+    <!--开启二级缓存（分开关）-->
+    <cache></cache>
+
+    <select id="login" resultType="admin">
+        select * from admin where name = #{id} and password = #{password}
+    </select>
+
+    <select id="register">
+        insert into admin values(#{adminName,#{password})
+    </select>
+</mapper>
