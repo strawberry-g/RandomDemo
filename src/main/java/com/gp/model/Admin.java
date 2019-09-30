@@ -3,16 +3,29 @@ package com.gp.model;
 import java.io.Serializable;
 
 public class Admin implements Serializable {
-    private String adminName;
+
+    private String id;
 
     private String password;
 
-    public String getAdminName() {
-        return adminName;
+    public Admin() {
+        super();
     }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "id='" + id + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getPassword() {
@@ -21,13 +34,5 @@ public class Admin implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "adminName='" + adminName + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }

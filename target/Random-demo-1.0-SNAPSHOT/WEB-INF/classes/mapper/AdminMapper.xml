@@ -7,11 +7,15 @@
     <!--开启二级缓存（分开关）-->
     <cache></cache>
 
-    <select id="login" resultType="admin">
-        select * from admin where name = #{id} and password = #{password}
+    <select id="login" resultMap="getAdmin">
+        select * from admin where id = #{id} and password = #{password}
     </select>
+    <resultMap id="getAdmin" type="admin">
+        <id property="id" column="id"></id>
+        <result property="password" column="password"></result>
+    </resultMap>
 
     <select id="register">
-        insert into admin values(#{adminName,#{password})
+        insert into admin values(#{id},#{password})
     </select>
 </mapper>

@@ -1,7 +1,5 @@
 package com.gp.servlet;
 
-import com.google.gson.Gson;
-import com.gp.model.Admin;
 import com.gp.service.AdminService;
 import com.gp.service.impl.AdminServiceImpl;
 import org.apache.logging.log4j.Logger;
@@ -22,27 +20,30 @@ public class AdminLoginServlet extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
-        //PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
 
         String id = request.getParameter("id");
         String password = request.getParameter("password");
 
         AdminService adminService = new AdminServiceImpl();
-       /* boolean b = false;
+        boolean b = false;
         try {
             b = adminService.login(id,password);
+            if (b == true){
+                System.out.println("登陆成功!");
+            }
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
 
-        if (id.equals("1001") && password.equals("1001")){
+        /*if (id.equals("1001") && password.equals("1001")){
             System.out.println("登录成功");
         }else {
             System.out.println("登陆失败");
-        }
-        //out.write(String.valueOf(b));
-        //out.flush();
-        //out.close();
+        }*/
+        out.write(String.valueOf(b));
+        out.flush();
+        out.close();
 
         //改变地址栏
         response.sendRedirect("../view.html");
